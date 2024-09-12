@@ -1,39 +1,35 @@
-import Link from 'next/link'
-import styled from 'styled-components'
-import AppLogo from 'components/atoms/AppLogo'
-import Button from 'components/atoms/Button'
-import {
-  SearchIcon,
-  PersonIcon,
-  ShoppingCartIcon,
-} from 'components/atoms/IconButton'
-import ShapeImage from 'components/atoms/ShapeImage'
-import Spinner from 'components/atoms/Spinner'
-import Text from 'components/atoms/Text'
-import Box from 'components/layout/Box'
-import Flex from 'components/layout/Flex'
-import BadgeIconButton from 'components/molecules/BadgeIconButton'
-import { useAuthContext } from 'contexts/AuthContext'
-import { useShoppingCartContext } from 'contexts/ShoppingCartContext'
+import Link from 'next/link';
+import styled from 'styled-components';
+import AppLogo from 'components/atoms/AppLogo';
+import Button from 'components/atoms/Button';
+import { SearchIcon, PersonIcon, ShoppingCartIcon } from 'components/atoms/IconButton';
+import ShapeImage from 'components/atoms/ShapeImage';
+import Spinner from 'components/atoms/Spinner';
+import Text from 'components/atoms/Text';
+import Box from 'components/layout/Box';
+import Flex from 'components/layout/Flex';
+import BadgeIconButton from 'components/molecules/BadgeIconButton';
+import { useAuthContext } from 'contexts/AuthContext';
+import { useShoppingCartContext } from 'contexts/ShoppingCartContext';
 
 // ヘッダーのルート
 const HeaderRoot = styled.header`
   height: 88px;
   padding: ${({ theme }) => theme.space[2]} 0px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-`
+`;
 
 // ナビゲーション
 const Nav = styled(Flex)`
   & > span:not(:first-child) {
     margin-left: ${({ theme }) => theme.space[2]};
   }
-`
+`;
 
 // ナビゲーションのリンク
 const NavLink = styled.span`
   display: inline;
-`
+`;
 
 // アンカー
 const Anchor = styled(Text)`
@@ -41,21 +37,21 @@ const Anchor = styled(Text)`
   &:hover {
     text-decoration: underline;
   }
-`
+`;
 
 /**
  * ヘッダー
  */
 const Header = () => {
-  const { cart } = useShoppingCartContext()
-  const { authUser, isLoading } = useAuthContext()
+  const { cart } = useShoppingCartContext();
+  const { authUser, isLoading } = useAuthContext();
 
   return (
     <HeaderRoot>
-      <Flex paddingLeft={3} paddingRight={3} justifyContent="space-between">
-        <Nav as="nav" height="56px" alignItems="center">
+      <Flex paddingLeft={3} paddingRight={3} justifyContent='space-between'>
+        <Nav as='nav' height='56px' alignItems='center'>
           <NavLink>
-            <Link href="/" passHref>
+            <Link href='/' passHref>
               <Anchor>
                 <AppLogo />
               </Anchor>
@@ -63,37 +59,37 @@ const Header = () => {
           </NavLink>
           <NavLink>
             <Box display={{ base: 'none', md: 'block' }}>
-              <Link href="/search" passHref>
+              <Link href='/search' passHref>
                 <Anchor>すべて</Anchor>
               </Link>
             </Box>
           </NavLink>
           <NavLink>
             <Box display={{ base: 'none', md: 'block' }}>
-              <Link href="/search/clothes" passHref>
+              <Link href='/search/clothes' passHref>
                 <Anchor>トップス</Anchor>
               </Link>
             </Box>
           </NavLink>
           <NavLink>
             <Box display={{ base: 'none', md: 'block' }}>
-              <Link href="/search/book" passHref>
+              <Link href='/search/book' passHref>
                 <Anchor>本</Anchor>
               </Link>
             </Box>
           </NavLink>
           <NavLink>
             <Box display={{ base: 'none', md: 'block' }}>
-              <Link href="/search/shoes" passHref>
+              <Link href='/search/shoes' passHref>
                 <Anchor>シューズ</Anchor>
               </Link>
             </Box>
           </NavLink>
         </Nav>
-        <Nav as="nav" height="56px" alignItems="center">
+        <Nav as='nav' height='56px' alignItems='center'>
           <NavLink>
             <Box display={{ base: 'block', md: 'none' }}>
-              <Link href="/search" passHref>
+              <Link href='/search' passHref>
                 <Anchor>
                   <SearchIcon />
                 </Anchor>
@@ -101,13 +97,13 @@ const Header = () => {
             </Box>
           </NavLink>
           <NavLink>
-            <Link href="/cart" passHref>
+            <Link href='/cart' passHref>
               <Anchor>
                 <BadgeIconButton
                   icon={<ShoppingCartIcon size={24} />}
-                  size="24px"
+                  size='24px'
                   badgeContent={cart.length === 0 ? undefined : cart.length}
-                  badgeBackgroundColor="primary"
+                  badgeBackgroundColor='primary'
                 />
               </Anchor>
             </Link>
@@ -120,39 +116,40 @@ const Header = () => {
                   <Link href={`/users/${authUser.id}`} passHref>
                     <Anchor>
                       <ShapeImage
-                        shape="circle"
+                        shape='circle'
                         src={authUser.profileImageUrl}
                         width={24}
                         height={24}
-                        data-testid="profile-shape-image"
+                        data-testid='profile-shape-image'
+                        alt=''
                       />
                     </Anchor>
                   </Link>
-                )
+                );
               } else if (isLoading) {
                 // ロード中はスピナーを表示
-                return <Spinner size={20} strokeWidth={2} />
+                return <Spinner size={20} strokeWidth={2} />;
               } else {
                 // サインインしてない場合はアイコンを表示
                 return (
-                  <Link href="/signin" passHref>
+                  <Link href='/signin' passHref>
                     <Anchor>
                       <PersonIcon size={24} />
                     </Anchor>
                   </Link>
-                )
+                );
               }
             })()}
           </NavLink>
           <NavLink>
-            <Link href="/sell" passHref>
+            <Link href='/sell' passHref>
               <Button>出品</Button>
             </Link>
           </NavLink>
         </Nav>
       </Flex>
     </HeaderRoot>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
