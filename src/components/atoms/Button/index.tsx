@@ -125,7 +125,7 @@ const variants = {
 const Button = styled.button.withConfig({
   shouldForwardProp,
 })<ButtonProps>`
-  ${({ variant, color, backgroundColor, pseudoClass, theme }) => {
+  ${({ variant = 'primary', color, backgroundColor, pseudoClass, theme }) => {
     // バリアントのスタイルの適用
     if (variant && variants[variant]) {
       const styles = [];
@@ -155,16 +155,17 @@ const Button = styled.button.withConfig({
       return styles.join('\n');
     }
   }}
-  ${(props) => toPropValue('font-size', props.fontSize, props.theme)}
+  ${(props) => toPropValue('font-size', props.fontSize ?? 'inherit', props.theme)}
   ${(props) => toPropValue('letter-spacing', props.letterSpacing, props.theme)}
-  ${(props) => toPropValue('line-height', props.lineHeight, props.theme)}
-  ${(props) => toPropValue('color', props.color, props.theme)}
+  ${(props) => toPropValue('line-height', props.lineHeight ?? 'inherit', props.theme)}
+  ${(props) => toPropValue('color', props.color ?? 'white', props.theme)}
   ${(props) => toPropValue('background-color', props.backgroundColor, props.theme)}
   ${(props) => toPropValue('width', props.width, props.theme)}
   ${(props) => toPropValue('height', props.height, props.theme)}
   ${(props) => toPropValue('min-width', props.minWidth, props.theme)}
   ${(props) => toPropValue('min-height', props.minHeight, props.theme)}
-  ${(props) => toPropValue('display', props.display, props.theme)}
+  ${(props) => toPropValue('display', props.display ?? 'inline-block', props.theme)}
+  ${(props) => toPropValue('text-align', props.textAlign ?? 'center', props.theme)}
   ${(props) => toPropValue('border', props.border, props.theme)}
   ${(props) => toPropValue('overflow', props.overflow, props.theme)}
   ${(props) => toPropValue('margin', props.margin, props.theme)}
@@ -173,10 +174,10 @@ const Button = styled.button.withConfig({
   ${(props) => toPropValue('margin-bottom', props.marginBottom, props.theme)}
   ${(props) => toPropValue('margin-right', props.marginRight, props.theme)}
   ${(props) => toPropValue('padding', props.padding, props.theme)}
-  ${(props) => toPropValue('padding-top', props.paddingTop, props.theme)}
-  ${(props) => toPropValue('padding-left', props.paddingLeft, props.theme)}
-  ${(props) => toPropValue('padding-bottom', props.paddingBottom, props.theme)}
-  ${(props) => toPropValue('padding-right', props.paddingRight, props.theme)}
+  ${(props) => toPropValue('padding-top', props.paddingTop ?? 1, props.theme)}
+  ${(props) => toPropValue('padding-left', props.paddingLeft ?? 2, props.theme)}
+  ${(props) => toPropValue('padding-bottom', props.paddingBottom ?? 1, props.theme)}
+  ${(props) => toPropValue('padding-right', props.paddingRight ?? 2, props.theme)}
   &:hover {
     ${(props) => toPropValue('background-color', props?.pseudoClass?.hover?.backgroundColor)}
   }
@@ -185,23 +186,10 @@ const Button = styled.button.withConfig({
   }
   cursor: pointer;
   outline: 0;
-  text-decoration: 'none';
+  text-decoration: none;
   opacity: ${({ disabled }) => (disabled ? '0.5' : '1')};
   border-radius: 4px;
   border: none;
 `;
-
-Button.defaultProps = {
-  variant: 'primary',
-  paddingLeft: 2,
-  paddingRight: 2,
-  paddingTop: 1,
-  paddingBottom: 1,
-  color: 'white',
-  display: 'inline-block',
-  textAlign: 'center',
-  lineHeight: 'inherit',
-  fontSize: 'inherit',
-};
 
 export default Button;

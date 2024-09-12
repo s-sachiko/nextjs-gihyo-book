@@ -32,8 +32,8 @@ export type BoxProps = {
   backgroundColor?: Responsive<Color>;
   width?: Responsive<string>;
   height?: Responsive<string>;
-  minWidth?: Responsive<number>;
-  minHeight?: Responsive<number>;
+  minWidth?: Responsive<string>;
+  minHeight?: Responsive<string>;
   display?: Responsive<string>;
   border?: Responsive<string>;
   overflow?: Responsive<string>;

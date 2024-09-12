@@ -55,6 +55,7 @@ const Flex = styled(Box).withConfig({
 })<FlexProps>`
   ${(props) => toPropValue('align-items', props.alignItems, props.theme)}
   ${(props) => toPropValue('align-content', props.alignContent, props.theme)}
+  ${(props) => toPropValue('display', props.display ?? 'flex', props.theme)}
   ${(props) => toPropValue('justify-content', props.justifyContent, props.theme)}
   ${(props) => toPropValue('justify-items', props.justifyItems, props.theme)}
   ${(props) => toPropValue('flex-wrap', props.flexWrap, props.theme)}
@@ -66,9 +67,5 @@ const Flex = styled(Box).withConfig({
   ${(props) => toPropValue('align-self', props.alignSelf, props.theme)}
   ${(props) => toPropValue('order', props.order, props.theme)}
 `;
-
-Flex.defaultProps = {
-  display: 'flex',
-};
 
 export default Flex;

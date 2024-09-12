@@ -61,10 +61,7 @@ const Grid = styled(Box).withConfig({
   ${(props) => toPropValue('grid-template-rows', props.gridTemplateRows, props.theme)}
   ${(props) => toPropValue('grid-template-areas', props.gridTemplateAreas, props.theme)}
   ${(props) => toPropValue('grid-area', props.gridArea, props.theme)}
+  ${(props) => toPropValue('display', props.display ?? 'grid', props.theme)}
 `;
-
-Grid.defaultProps = {
-  display: 'grid',
-};
 
 export default Grid;

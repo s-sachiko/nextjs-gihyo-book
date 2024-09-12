@@ -110,7 +110,7 @@ const variants = {
 const Text = styled.span.withConfig({
   shouldForwardProp,
 })<TextProps>`
-  ${({ variant, fontSize, letterSpacing, lineHeight, theme }) => {
+  ${({ variant = 'medium', fontSize, letterSpacing, lineHeight, theme }) => {
     // バリアントのスタイルの適用
     if (variant && variants[variant]) {
       const styles = [];
@@ -124,7 +124,7 @@ const Text = styled.span.withConfig({
   ${(props) => toPropValue('font-size', props.fontSize, props.theme)}
   ${(props) => toPropValue('letter-spacing', props.letterSpacing, props.theme)}
   ${(props) => toPropValue('line-height', props.lineHeight, props.theme)}
-  ${(props) => toPropValue('color', props.color, props.theme)}
+  ${(props) => toPropValue('color', props.color ?? 'text', props.theme)}
   ${(props) => toPropValue('background-color', props.backgroundColor, props.theme)}
   ${(props) => toPropValue('width', props.width, props.theme)}
   ${(props) => toPropValue('height', props.height, props.theme)}
@@ -144,10 +144,5 @@ const Text = styled.span.withConfig({
   ${(props) => toPropValue('padding-bottom', props.paddingBottom, props.theme)}
   ${(props) => toPropValue('padding-right', props.paddingRight, props.theme)}
 `;
-
-Text.defaultProps = {
-  variant: 'medium',
-  color: 'text',
-};
 
 export default Text;

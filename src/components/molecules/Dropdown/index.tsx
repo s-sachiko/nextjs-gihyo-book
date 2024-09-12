@@ -9,7 +9,9 @@ const DropdownRoot = styled.div`
 `;
 
 // ドロップダウン外観
-const DropdownControl = styled.div<{ hasError?: boolean }>`
+const DropdownControl = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== 'hasError', // hasError を DOM に渡さない
+})<{ hasError?: boolean }>`
   position: relative;
   overflow: hidden;
   background-color: #ffffff;
@@ -35,8 +37,11 @@ const DropdownPlaceholder = styled.div`
 `;
 
 // ドロップダウンの矢印の外観
-const DropdownArrow = styled.div<{ isOpen?: boolean }>`
-  border-color: ${({ isOpen }) => (isOpen ? 'transparent transparent #222222;' : '#222222 transparent transparent')};
+const DropdownArrow = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== 'isOpen', // isOpen を DOM に渡さない
+})<{ isOpen?: boolean }>`
+  border-color: ${({ isOpen }) =>
+    isOpen ? 'transparent transparent #222222;' : '#222222 transparent transparent'};
   border-width: ${({ isOpen }) => (isOpen ? '0 5px 5px' : '5px 5px 0;')};
   border-style: solid;
   content: ' ';
