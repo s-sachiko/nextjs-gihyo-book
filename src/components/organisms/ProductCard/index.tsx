@@ -59,7 +59,7 @@ const ProductCard = ({
       case 'detail':
         return { size: { base: '320px', md: '540px' }, imgSize: 540 };
       case 'listing':
-        return { size: { base: '160px', md: '240px' }, imgSize: 240 };
+        return { size: { base: 'auto', md: '240px' }, imgSize: 240 };
       default:
         return { size: { base: '160px' }, imgSize: 160 };
     }
