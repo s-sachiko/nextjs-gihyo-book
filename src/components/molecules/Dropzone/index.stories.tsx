@@ -30,7 +30,7 @@ const meta: Meta<typeof Dropzone> = {
       },
     },
     acceptedFileTypes: {
-      control: { type: 'array' },
+      control: { type: 'object' },
       description: '受け付けるファイルタイプ',
       table: {
         type: { summary: 'array' },

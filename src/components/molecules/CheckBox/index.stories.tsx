@@ -1,4 +1,4 @@
-import { Meta, ComponentStory } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 import CheckBox from './index'
 
 export default {
@@ -27,9 +27,7 @@ export default {
   },
 } as Meta<typeof CheckBox>
 
-const Template: ComponentStory<typeof CheckBox> = (args) => (
-  <CheckBox {...args} />
-)
-
-export const WithLabel = Template.bind({})
-WithLabel.args = { label: 'Label' }
+export const WithLabel: StoryObj<typeof CheckBox> = {
+  render: (args) => <CheckBox {...args} />,
+  args: { label: 'Label' },
+}

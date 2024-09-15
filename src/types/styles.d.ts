@@ -27,9 +27,18 @@ type SelfPosition =
 
 type ContentPosition = 'center' | 'end' | 'flex-end' | 'flex-start' | 'start'
 
-type ContentDistribution = 'space-around' | 'space-between' | 'space-evenly' | 'stretch'
+type ContentDistribution =
+  | 'space-around'
+  | 'space-between'
+  | 'space-evenly'
+  | 'stretch'
 
-type CSSPropertyGlobals = '-moz-initial' | 'inherit' | 'initial' | 'revert' | 'unset'
+type CSSPropertyGlobals =
+  | '-moz-initial'
+  | 'inherit'
+  | 'initial'
+  | 'revert'
+  | 'unset'
 
 export type CSSPropertyAlignItems =
   | CSSPropertyGlobals
@@ -72,7 +81,11 @@ export type CSSPropertyJustifyContent =
   | 'right'
   | (string & {})
 
-export type CSSPropertyFlexWrap = CSSPropertyGlobals | 'nowrap' | 'wrap' | 'wrap-reverse'
+export type CSSPropertyFlexWrap =
+  | CSSPropertyGlobals
+  | 'nowrap'
+  | 'wrap'
+  | 'wrap-reverse'
 
 export type CSSPropertyFlexDirection =
   | CSSPropertyGlobals
@@ -106,7 +119,10 @@ export type CSSPropertyAlignSelf =
  */
 type GridLine = 'auto' | (string & {})
 
-export type CSSPropertyGridColumn = CSSPropertyGlobals | GridLine | (string & {})
+export type CSSPropertyGridColumn =
+  | CSSPropertyGlobals
+  | GridLine
+  | (string & {})
 
 export type CSSPropertyGridRow = CSSPropertyGlobals | GridLine | (string & {})
 

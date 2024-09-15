@@ -1,4 +1,4 @@
-import { Meta, ComponentStory } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 import styled from 'styled-components'
 import Spinner from './index'
 
@@ -44,10 +44,10 @@ const SpinnerWrapper = styled.div`
   z-index: 1199;
 `
 
-const Template: ComponentStory<typeof Spinner> = (args) => (
-  <SpinnerWrapper>
-    <Spinner {...args} />
-  </SpinnerWrapper>
-)
-
-export const Normal = Template.bind({})
+export const Normal: StoryObj<typeof Spinner> = {
+  render: (args) => (
+    <SpinnerWrapper>
+      <Spinner {...args} />
+    </SpinnerWrapper>
+  ),
+}

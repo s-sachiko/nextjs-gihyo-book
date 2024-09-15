@@ -1,4 +1,4 @@
-import { Meta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import UserProfile from './index'
 
 export default {
@@ -45,7 +45,7 @@ export default {
   },
 } as Meta<typeof UserProfile>
 
-const Template: ComponentStory<typeof UserProfile> = (args) => (
+const Template: StoryFn<typeof UserProfile> = (args) => (
   <UserProfile {...args} />
 )
 

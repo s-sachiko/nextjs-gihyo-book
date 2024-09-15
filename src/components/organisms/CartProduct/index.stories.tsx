@@ -1,4 +1,4 @@
-import { Meta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import CartProduct from './index'
 
 export default {
@@ -47,7 +47,7 @@ export default {
   },
 } as Meta<typeof CartProduct>
 
-const Template: ComponentStory<typeof CartProduct> = (args) => (
+const Template: StoryFn<typeof CartProduct> = (args) => (
   <CartProduct {...args} />
 )
 

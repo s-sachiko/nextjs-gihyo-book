@@ -1,9 +1,10 @@
-import { Meta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { useState } from 'react'
 import FilterGroup from './index'
 
 export default {
   title: 'Molecules/FilterGroup',
+  component: FilterGroup,
   argTypes: {
     title: {
       control: { type: 'text' },
@@ -13,7 +14,7 @@ export default {
       },
     },
     items: {
-      control: { type: 'array' },
+      control: { type: 'object' },
       description: 'オプション',
       table: {
         type: { summary: 'array' },
@@ -28,7 +29,7 @@ export default {
   },
 } as Meta<typeof FilterGroup>
 
-const Template: ComponentStory<typeof FilterGroup> = (args) => {
+const Template: StoryFn<typeof FilterGroup> = (args) => {
   const [value, setValue] = useState<string[]>([])
   const handleChange = (value: string[]) => {
     setValue(value)

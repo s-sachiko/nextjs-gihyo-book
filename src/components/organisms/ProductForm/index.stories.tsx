@@ -1,4 +1,4 @@
-import { Meta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import ProductForm from './index'
 
 export default {
@@ -13,7 +13,7 @@ export default {
   },
 } as Meta<typeof ProductForm>
 
-const Template: ComponentStory<typeof ProductForm> = (args) => (
+const Template: StoryFn<typeof ProductForm> = (args) => (
   <ProductForm {...args} />
 )
 export const Form = Template.bind({})

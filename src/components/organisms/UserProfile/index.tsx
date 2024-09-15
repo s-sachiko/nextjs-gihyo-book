@@ -40,7 +40,7 @@ const UserProfile = ({
 
   return (
     <Flex>
-      <Box minWidth={profileImageSize}>
+      <Box minWidth={profileImageSize + 'px'}>
         {/* ユーザー画像 */}
         <ShapeImage
           shape="circle"

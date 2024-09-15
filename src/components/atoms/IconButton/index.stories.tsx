@@ -1,11 +1,12 @@
-import { Meta, ComponentStory } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 import { SearchIcon, CloudUploadIcon, PersonOutlineIcon } from './'
 
-export default {
+const meta: Meta<typeof SearchIcon> = {
   title: 'Atoms/IconButton',
+  component: SearchIcon,
   argTypes: {
     color: {
-      control: { type: 'string' },
+      control: { type: 'color' },
       description: 'アイコン色',
       table: {
         type: { summary: 'ThemeColors' },
@@ -33,14 +34,16 @@ export default {
       },
     },
   },
-} as Meta<typeof SearchIcon>
+}
 
-const Template: ComponentStory<typeof SearchIcon> = (args) => (
-  <>
-    <SearchIcon {...args} />
-    <CloudUploadIcon {...args} />
-    <PersonOutlineIcon {...args} />
-  </>
-)
+export default meta
 
-export const Normal = Template.bind({})
+export const Normal: StoryObj<typeof SearchIcon> = {
+  render: (args) => (
+    <>
+      <SearchIcon {...args} />
+      <CloudUploadIcon {...args} />
+      <PersonOutlineIcon {...args} />
+    </>
+  ),
+}

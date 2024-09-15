@@ -1,10 +1,17 @@
 /* eslint-disable prettier/prettier */
-import styled from 'styled-components'
-import { Responsive } from 'types'
-import { toPropValue, Color, FontSize, LetterSpacing, LineHeight, Space } from 'utils/styles'
+import styled from 'styled-components';
+import { Responsive } from 'types';
+import {
+  toPropValue,
+  Color,
+  FontSize,
+  LetterSpacing,
+  LineHeight,
+  Space,
+} from 'utils/styles';
 
 // ボタンのバリアント
-export type ButtonVariant = 'primary' | 'secondary' | 'danger'
+export type ButtonVariant = 'primary' | 'secondary' | 'danger';
 
 // DOMに渡したくないpropsを制御する関数
 const shouldForwardProp = (prop: string) =>
@@ -35,43 +42,43 @@ const shouldForwardProp = (prop: string) =>
     'paddingBottom',
     'paddingLeft',
     'pseudoClass',
-  ].includes(prop)
+  ].includes(prop);
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: ButtonVariant
-  fontSize?: Responsive<FontSize>
-  fontWeight?: Responsive<string>
-  letterSpacing?: Responsive<LetterSpacing>
-  lineHeight?: Responsive<LineHeight>
-  textAlign?: Responsive<string>
-  color?: Responsive<Color>
-  backgroundColor?: Responsive<Color>
-  width?: Responsive<string>
-  height?: Responsive<string>
-  minWidth?: Responsive<string>
-  minHeight?: Responsive<string>
-  display?: Responsive<string>
-  border?: Responsive<string>
-  overflow?: Responsive<string>
-  margin?: Responsive<Space>
-  marginTop?: Responsive<Space>
-  marginRight?: Responsive<Space>
-  marginBottom?: Responsive<Space>
-  marginLeft?: Responsive<Space>
-  padding?: Responsive<Space>
-  paddingTop?: Responsive<Space>
-  paddingRight?: Responsive<Space>
-  paddingBottom?: Responsive<Space>
-  paddingLeft?: Responsive<Space>
+  variant?: ButtonVariant;
+  fontSize?: Responsive<FontSize>;
+  fontWeight?: Responsive<string>;
+  letterSpacing?: Responsive<LetterSpacing>;
+  lineHeight?: Responsive<LineHeight>;
+  textAlign?: Responsive<string>;
+  color?: Responsive<Color>;
+  backgroundColor?: Responsive<Color>;
+  width?: Responsive<string>;
+  height?: Responsive<string>;
+  minWidth?: Responsive<string>;
+  minHeight?: Responsive<string>;
+  display?: Responsive<string>;
+  border?: Responsive<string>;
+  overflow?: Responsive<string>;
+  margin?: Responsive<Space>;
+  marginTop?: Responsive<Space>;
+  marginRight?: Responsive<Space>;
+  marginBottom?: Responsive<Space>;
+  marginLeft?: Responsive<Space>;
+  padding?: Responsive<Space>;
+  paddingTop?: Responsive<Space>;
+  paddingRight?: Responsive<Space>;
+  paddingBottom?: Responsive<Space>;
+  paddingLeft?: Responsive<Space>;
   pseudoClass?: {
     hover?: {
-      backgroundColor?: Responsive<Color>
-    }
+      backgroundColor?: Responsive<Color>;
+    };
     disabled?: {
-      backgroundColor?: Responsive<Color>
-    }
-  }
-}
+      backgroundColor?: Responsive<Color>;
+    };
+  };
+};
 
 const variants = {
   // プライマリ
@@ -116,7 +123,7 @@ const variants = {
       },
     },
   },
-}
+};
 
 /**
  * ボタン
@@ -128,44 +135,56 @@ const Button = styled.button.withConfig({
   ${({ variant = 'primary', color, backgroundColor, pseudoClass, theme }) => {
     // バリアントのスタイルの適用
     if (variant && variants[variant]) {
-      const styles = []
-      !color && styles.push(toPropValue('color', variants[variant].color, theme))
+      const styles = [];
+      !color &&
+        styles.push(toPropValue('color', variants[variant].color, theme));
       !backgroundColor &&
-        styles.push(toPropValue('background-color', variants[variant].backgroundColor, theme))
+        styles.push(
+          toPropValue(
+            'background-color',
+            variants[variant].backgroundColor,
+            theme,
+          ),
+        );
       !pseudoClass &&
         styles.push(
           `&:hover {
             ${toPropValue(
               'background-color',
               variants[variant].pseudoClass.hover.backgroundColor,
-              theme
+              theme,
             )}
-          }`.replaceAll('\n', '')
-        )
+          }`.replaceAll('\n', ''),
+        );
       !pseudoClass &&
         styles.push(
           `&:disabled {
             ${toPropValue(
               'background-color',
               variants[variant].pseudoClass.disabled.backgroundColor,
-              theme
+              theme,
             )}
-          }`.replaceAll('\n', '')
-        )
-      return styles.join('\n')
+          }`.replaceAll('\n', ''),
+        );
+      return styles.join('\n');
     }
   }}
-  ${(props) => toPropValue('font-size', props.fontSize ?? 'inherit', props.theme)}
+  ${(props) =>
+    toPropValue('font-size', props.fontSize ?? 'inherit', props.theme)}
   ${(props) => toPropValue('letter-spacing', props.letterSpacing, props.theme)}
-  ${(props) => toPropValue('line-height', props.lineHeight ?? 'inherit', props.theme)}
+  ${(props) =>
+    toPropValue('line-height', props.lineHeight ?? 'inherit', props.theme)}
   ${(props) => toPropValue('color', props.color ?? 'white', props.theme)}
-  ${(props) => toPropValue('background-color', props.backgroundColor, props.theme)}
+  ${(props) =>
+    toPropValue('background-color', props.backgroundColor, props.theme)}
   ${(props) => toPropValue('width', props.width, props.theme)}
   ${(props) => toPropValue('height', props.height, props.theme)}
   ${(props) => toPropValue('min-width', props.minWidth, props.theme)}
   ${(props) => toPropValue('min-height', props.minHeight, props.theme)}
-  ${(props) => toPropValue('display', props.display ?? 'inline-block', props.theme)}
-  ${(props) => toPropValue('text-align', props.textAlign ?? 'center', props.theme)}
+  ${(props) =>
+    toPropValue('display', props.display ?? 'inline-block', props.theme)}
+  ${(props) =>
+    toPropValue('text-align', props.textAlign ?? 'center', props.theme)}
   ${(props) => toPropValue('border', props.border, props.theme)}
   ${(props) => toPropValue('overflow', props.overflow, props.theme)}
   ${(props) => toPropValue('margin', props.margin, props.theme)}
@@ -176,13 +195,23 @@ const Button = styled.button.withConfig({
   ${(props) => toPropValue('padding', props.padding, props.theme)}
   ${(props) => toPropValue('padding-top', props.paddingTop ?? 1, props.theme)}
   ${(props) => toPropValue('padding-left', props.paddingLeft ?? 2, props.theme)}
-  ${(props) => toPropValue('padding-bottom', props.paddingBottom ?? 1, props.theme)}
-  ${(props) => toPropValue('padding-right', props.paddingRight ?? 2, props.theme)}
+  ${(props) =>
+    toPropValue('padding-bottom', props.paddingBottom ?? 1, props.theme)}
+  ${(props) =>
+    toPropValue('padding-right', props.paddingRight ?? 2, props.theme)}
   &:hover {
-    ${(props) => toPropValue('background-color', props?.pseudoClass?.hover?.backgroundColor)}
+    ${(props) =>
+      toPropValue(
+        'background-color',
+        props?.pseudoClass?.hover?.backgroundColor,
+      )}
   }
   &:disabled {
-    ${(props) => toPropValue('background-color', props?.pseudoClass?.disabled?.backgroundColor)}
+    ${(props) =>
+      toPropValue(
+        'background-color',
+        props?.pseudoClass?.disabled?.backgroundColor,
+      )}
   }
   cursor: pointer;
   outline: 0;
@@ -190,6 +219,6 @@ const Button = styled.button.withConfig({
   opacity: ${({ disabled }) => (disabled ? '0.5' : '1')};
   border-radius: 4px;
   border: none;
-`
+`;
 
-export default Button
+export default Button;
