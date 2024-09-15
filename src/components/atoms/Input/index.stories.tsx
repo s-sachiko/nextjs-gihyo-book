@@ -1,42 +1,42 @@
-import { Meta, StoryObj } from "@storybook/react";
-import Input from "./index";
+import { Meta, StoryObj } from '@storybook/react'
+import Input from './index'
 
 const meta: Meta<typeof Input> = {
-  title: "Atoms/Input",
+  title: 'Atoms/Input',
   component: Input,
   argTypes: {
     placeholder: {
-      control: { type: "text" },
-      description: "プレースホルダー",
+      control: { type: 'text' },
+      description: 'プレースホルダー',
       table: {
-        type: { summary: "string" },
+        type: { summary: 'string' },
       },
     },
     hasBorder: {
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
       defaultValue: true,
-      description: "ボーダーフラグ",
+      description: 'ボーダーフラグ',
       table: {
-        type: { summary: "boolean" },
+        type: { summary: 'boolean' },
       },
     },
     hasError: {
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
       defaultValue: false,
-      description: "バリデーションエラーフラグ",
+      description: 'バリデーションエラーフラグ',
       table: {
-        type: { summary: "boolean" },
+        type: { summary: 'boolean' },
       },
     },
   },
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof Input>;
+type Story = StoryObj<typeof Input>
 
-export const Normal: Story = {};
+export const Normal: Story = {}
 
 export const Error: Story = {
   args: { hasError: true },
-};
+}

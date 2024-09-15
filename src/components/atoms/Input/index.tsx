@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 /**
  * テキストインプット
@@ -10,13 +10,14 @@ const Input = styled.input.withConfig({
   ${({ theme, hasBorder = true, hasError }) => {
     if (hasBorder) {
       return css`
-        border: 1px solid ${hasError ? theme.colors.danger : theme.colors.border};
+        border: 1px solid
+          ${hasError ? theme.colors.danger : theme.colors.border};
         border-radius: 5px;
-      `;
+      `
     } else {
       return css`
         border: none;
-      `;
+      `
     }
   }}
   padding: 11px 12px 12px 9px;
@@ -40,6 +41,6 @@ const Input = styled.input.withConfig({
   &[type='number'] {
     -moz-appearance: textfield;
   }
-`;
+`
 
-export default Input;
+export default Input

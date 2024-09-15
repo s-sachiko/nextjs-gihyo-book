@@ -1,15 +1,15 @@
-import * as React from 'react';
-import styled, { css } from 'styled-components';
+import * as React from 'react'
+import styled, { css } from 'styled-components'
 
 // DOMに渡したくないpropsを制御する関数
 const shouldForwardProp = (prop: string) =>
-  !['size', 'strokeWidth', 'isAutoCentering'].includes(prop);
+  !['size', 'strokeWidth', 'isAutoCentering'].includes(prop)
 
 type SpinnerProps = {
-  size?: number;
-  strokeWidth?: number;
-  isAutoCentering?: boolean;
-};
+  size?: number
+  strokeWidth?: number
+  isAutoCentering?: boolean
+}
 
 const StyledSpinner = styled.svg.withConfig({
   shouldForwardProp,
@@ -50,26 +50,30 @@ const StyledSpinner = styled.svg.withConfig({
       stroke-dashoffset: -124;
     }
   }
-`;
+`
 
 /**
  * スピナー
  */
 const Spinner = (props: SpinnerProps) => {
-  const { size = 50, strokeWidth = 4, isAutoCentering = false } = props;
+  const { size = 50, strokeWidth = 4, isAutoCentering = false } = props
 
   return (
-    <StyledSpinner size={size} isAutoCentering={isAutoCentering} viewBox={`0 0 ${size} ${size}`}>
+    <StyledSpinner
+      size={size}
+      isAutoCentering={isAutoCentering}
+      viewBox={`0 0 ${size} ${size}`}
+    >
       <circle
-        className='path'
+        className="path"
         cx={size / 2}
         cy={size / 2}
         r={size / 2 - strokeWidth / 2}
-        fill='none'
+        fill="none"
         strokeWidth={strokeWidth}
       />
     </StyledSpinner>
-  );
-};
+  )
+}
 
-export default Spinner;
+export default Spinner

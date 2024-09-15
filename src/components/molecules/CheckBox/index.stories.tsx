@@ -1,5 +1,5 @@
-import { Meta, ComponentStory } from '@storybook/react';
-import CheckBox from './index';
+import { Meta, ComponentStory } from '@storybook/react'
+import CheckBox from './index'
 
 export default {
   title: 'Molecules/CheckBox',
@@ -25,9 +25,11 @@ export default {
       },
     },
   },
-} as Meta<typeof CheckBox>;
+} as Meta<typeof CheckBox>
 
-const Template: ComponentStory<typeof CheckBox> = (args) => <CheckBox {...args} />;
+const Template: ComponentStory<typeof CheckBox> = (args) => (
+  <CheckBox {...args} />
+)
 
-export const WithLabel = Template.bind({});
-WithLabel.args = { label: 'Label' };
+export const WithLabel = Template.bind({})
+WithLabel.args = { label: 'Label' }

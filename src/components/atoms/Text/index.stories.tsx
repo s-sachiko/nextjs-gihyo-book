@@ -1,134 +1,141 @@
-import { Meta, StoryObj } from "@storybook/react";
-import Text from "./index";
+import { Meta, StoryObj } from '@storybook/react'
+import Text from './index'
 
 const meta: Meta<typeof Text> = {
-  title: "Atoms/Text",
+  title: 'Atoms/Text',
   component: Text,
   argTypes: {
     variant: {
-      options: ["extraSmall", "small", "medium", "mediumLarge", "large", "extraLarge"],
-      control: { type: "select" },
-      defaultValue: "medium",
+      options: [
+        'extraSmall',
+        'small',
+        'medium',
+        'mediumLarge',
+        'large',
+        'extraLarge',
+      ],
+      control: { type: 'select' },
+      defaultValue: 'medium',
       // docsに表示する内容を設定
-      description: "テキストバリアント",
+      description: 'テキストバリアント',
       table: {
         type: {
-          summary: "extraSmall , small, medium, mediumLarge, large, extraLarge",
+          summary: 'extraSmall , small, medium, mediumLarge, large, extraLarge',
         },
-        defaultValue: { summary: "medium" },
+        defaultValue: { summary: 'medium' },
       },
     },
     children: {
-      control: { type: "text" },
-      description: "テキスト",
+      control: { type: 'text' },
+      description: 'テキスト',
       table: {
-        type: { summary: "string" },
+        type: { summary: 'string' },
       },
     },
     fontWeight: {
-      control: { type: "text" },
-      description: "フォントの太さ",
+      control: { type: 'text' },
+      description: 'フォントの太さ',
       table: {
-        type: { summary: "string" },
+        type: { summary: 'string' },
       },
     },
     lineHeight: {
-      control: { type: "text" },
-      description: "行の高さ",
+      control: { type: 'text' },
+      description: '行の高さ',
       table: {
-        type: { summary: "string" },
+        type: { summary: 'string' },
       },
     },
     color: {
-      control: { type: "color" },
-      description: "テキストの色",
+      control: { type: 'color' },
+      description: 'テキストの色',
       table: {
-        type: { summary: "string" },
+        type: { summary: 'string' },
       },
     },
     backgroundColor: {
-      control: { type: "color" },
-      description: "背景色",
+      control: { type: 'color' },
+      description: '背景色',
       table: {
-        type: { summary: "string" },
+        type: { summary: 'string' },
       },
     },
     m: {
-      control: { type: "number" },
-      description: "マージン",
+      control: { type: 'number' },
+      description: 'マージン',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     mt: {
-      control: { type: "number" },
-      description: "マージントップ",
+      control: { type: 'number' },
+      description: 'マージントップ',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     mr: {
-      control: { type: "number" },
-      description: "マージンライト",
+      control: { type: 'number' },
+      description: 'マージンライト',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     mb: {
-      control: { type: "number" },
-      description: "マージンボトム",
+      control: { type: 'number' },
+      description: 'マージンボトム',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     ml: {
-      control: { type: "number" },
-      description: "マージンレフト",
+      control: { type: 'number' },
+      description: 'マージンレフト',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     p: {
-      control: { type: "number" },
-      description: "パディング",
+      control: { type: 'number' },
+      description: 'パディング',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     pt: {
-      control: { type: "number" },
-      description: "パディングトップ",
+      control: { type: 'number' },
+      description: 'パディングトップ',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     pr: {
-      control: { type: "number" },
-      description: "パディングライト",
+      control: { type: 'number' },
+      description: 'パディングライト',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     pb: {
-      control: { type: "number" },
-      description: "パディングボトム",
+      control: { type: 'number' },
+      description: 'パディングボトム',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     pl: {
-      control: { type: "number" },
-      description: "パディングレフト",
+      control: { type: 'number' },
+      description: 'パディングレフト',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
   },
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof Text>;
+type Story = StoryObj<typeof Text>
 
 const longText = `It is a long established fact that a reader will be
 distracted by the readable content of a page when looking at its layout.
@@ -138,41 +145,41 @@ making it look like readable English.Many desktop publishing packages and
 web page editors now use Lorem Ipsum as their default model text, and a
 search for lorem ipsum will uncover many web sites still in their infancy.
 Various versions have evolved over the years, sometimes by accident,
-sometimes on purpose(injected humour and the like).`;
+sometimes on purpose(injected humour and the like).`
 
 export const ExtraSmall: Story = {
   args: {
-    variant: "extraSmall",
+    variant: 'extraSmall',
     children: longText,
   },
-};
+}
 export const Small: Story = {
   args: {
-    variant: "small",
+    variant: 'small',
     children: longText,
   },
-};
+}
 export const Medium: Story = {
   args: {
-    variant: "medium",
+    variant: 'medium',
     children: longText,
   },
-};
+}
 export const MediumLarge: Story = {
   args: {
-    variant: "mediumLarge",
+    variant: 'mediumLarge',
     children: longText,
   },
-};
+}
 export const Large: Story = {
   args: {
-    variant: "large",
+    variant: 'large',
     children: longText,
   },
-};
+}
 export const ExtraLarge: Story = {
   args: {
-    variant: "extraLarge",
+    variant: 'extraLarge',
     children: longText,
   },
-};
+}

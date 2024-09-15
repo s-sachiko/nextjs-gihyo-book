@@ -1,64 +1,64 @@
-import { Meta, StoryObj } from "@storybook/react";
-import TextArea from "./index";
+import { Meta, StoryObj } from '@storybook/react'
+import TextArea from './index'
 
 const meta: Meta<typeof TextArea> = {
-  title: "Atoms/TextArea",
+  title: 'Atoms/TextArea',
   component: TextArea,
   argTypes: {
     placeholder: {
-      control: { type: "text" },
-      description: "プレースホルダー",
+      control: { type: 'text' },
+      description: 'プレースホルダー',
       table: {
-        type: { summary: "string" },
+        type: { summary: 'string' },
       },
     },
     rows: {
-      control: { type: "number" },
+      control: { type: 'number' },
       defaultValue: 5,
-      description: "行数",
+      description: '行数',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     minRows: {
-      control: { type: "number" },
+      control: { type: 'number' },
       defaultValue: 5,
-      description: "最小行数",
+      description: '最小行数',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     maxRows: {
-      control: { type: "number" },
+      control: { type: 'number' },
       defaultValue: 10,
-      description: "最大行数",
+      description: '最大行数',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     hasError: {
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
       defaultValue: false,
-      description: "バリデーションエラーフラグ",
+      description: 'バリデーションエラーフラグ',
       table: {
-        type: { summary: "boolean" },
+        type: { summary: 'boolean' },
       },
     },
     onChange: {
-      description: "onChangeイベントハンドラ",
+      description: 'onChangeイベントハンドラ',
       table: {
-        type: { summary: "function" },
+        type: { summary: 'function' },
       },
     },
   },
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof TextArea>;
+type Story = StoryObj<typeof TextArea>
 
-export const Normal: Story = {};
+export const Normal: Story = {}
 
 export const Error: Story = {
   args: { hasError: true },
-};
+}

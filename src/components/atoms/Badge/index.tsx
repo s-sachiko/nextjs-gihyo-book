@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 // バッジの円形
 const BadgeWrapper = styled.div.withConfig({
@@ -11,24 +11,24 @@ const BadgeWrapper = styled.div.withConfig({
   align-items: center;
   justify-content: center;
   background-color: ${({ backgroundColor }) => backgroundColor};
-`;
+`
 
 // バッジ内のテキスト
 const BadgeText = styled.p`
   color: white;
   font-size: 11px;
   user-select: none;
-`;
+`
 
 interface BadgeProps {
   /**
    * バッジのテキスト
    */
-  content: string;
+  content: string
   /**
    * バッジの色
    */
-  backgroundColor: string;
+  backgroundColor: string
 }
 
 /**
@@ -39,7 +39,7 @@ const Badge = ({ content, backgroundColor }: BadgeProps) => {
     <BadgeWrapper backgroundColor={backgroundColor}>
       <BadgeText>{content}</BadgeText>
     </BadgeWrapper>
-  );
-};
+  )
+}
 
-export default Badge;
+export default Badge

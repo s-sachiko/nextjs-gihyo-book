@@ -1,81 +1,81 @@
-import { Meta, StoryObj } from "@storybook/react";
-import Button from "./index";
+import { Meta, StoryObj } from '@storybook/react'
+import Button from './index'
 
 const meta: Meta<typeof Button> = {
-  title: "Atoms/Button",
+  title: 'Atoms/Button',
   component: Button,
   argTypes: {
     variant: {
-      options: ["primary", "secondary"],
-      control: { type: "radio" },
-      defaultValue: "primary",
+      options: ['primary', 'secondary'],
+      control: { type: 'radio' },
+      defaultValue: 'primary',
       // docsに表示する内容を設定
-      description: "ボタンバリアント",
+      description: 'ボタンバリアント',
       table: {
-        type: { summary: "primary | secondary" },
-        defaultValue: { summary: "primary" },
+        type: { summary: 'primary | secondary' },
+        defaultValue: { summary: 'primary' },
       },
     },
     children: {
-      control: { type: "text" },
-      defaultValue: "Button",
-      description: "ボタンテキスト",
+      control: { type: 'text' },
+      defaultValue: 'Button',
+      description: 'ボタンテキスト',
       table: {
-        type: { summary: "string" },
+        type: { summary: 'string' },
       },
     },
     disabled: {
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
       defaultValue: false,
-      description: "Disabledフラグ",
+      description: 'Disabledフラグ',
       table: {
-        type: { summary: "boolean" },
+        type: { summary: 'boolean' },
       },
     },
     width: {
-      control: { type: "number" },
-      description: "ボタンの横幅",
+      control: { type: 'number' },
+      description: 'ボタンの横幅',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     height: {
-      control: { type: "number" },
-      description: "ボタンの縦幅",
+      control: { type: 'number' },
+      description: 'ボタンの縦幅',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     onClick: {
-      description: "onClickイベントハンドラ",
+      description: 'onClickイベントハンドラ',
       table: {
-        type: { summary: "function" },
+        type: { summary: 'function' },
       },
     },
   },
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof Button>;
+type Story = StoryObj<typeof Button>
 
 export const Primary: Story = {
   args: {
-    variant: "primary",
-    children: "Primary Button",
+    variant: 'primary',
+    children: 'Primary Button',
   },
-};
+}
 
 export const Secondary: Story = {
   args: {
-    variant: "secondary",
-    children: "Secondary Button",
+    variant: 'secondary',
+    children: 'Secondary Button',
   },
-};
+}
 
 export const Disabled: Story = {
   args: {
     disabled: true,
-    children: "Disabled Button",
+    children: 'Disabled Button',
   },
-};
+}

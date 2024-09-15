@@ -1,5 +1,5 @@
-import { Meta, ComponentStory } from '@storybook/react';
-import RectLoader from './index';
+import { Meta, ComponentStory } from '@storybook/react'
+import RectLoader from './index'
 
 export default {
   title: 'Atoms/RectLoader',
@@ -21,8 +21,10 @@ export default {
       },
     },
   },
-} as Meta<typeof RectLoader>;
+} as Meta<typeof RectLoader>
 
-const Template: ComponentStory<typeof RectLoader> = (args) => <RectLoader {...args} />;
+const Template: ComponentStory<typeof RectLoader> = (args) => (
+  <RectLoader {...args} />
+)
 
-export const Normal = Template.bind({});
+export const Normal = Template.bind({})

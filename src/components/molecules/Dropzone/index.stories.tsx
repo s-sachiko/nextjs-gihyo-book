@@ -1,89 +1,89 @@
-import { Meta, StoryObj } from "@storybook/react";
-import React, { useState, useEffect, ComponentProps } from "react";
-import Dropzone from "./index";
-import Button from "components/atoms/Button";
-import Box from "components/layout/Box";
+import { Meta, StoryObj } from '@storybook/react'
+import React, { useState, useEffect, ComponentProps } from 'react'
+import Dropzone from './index'
+import Button from 'components/atoms/Button'
+import Box from 'components/layout/Box'
 
 const meta: Meta<typeof Dropzone> = {
-  title: "Molecules/Dropzone",
+  title: 'Molecules/Dropzone',
   component: Dropzone,
   argTypes: {
     height: {
-      control: { type: "number" },
-      description: "縦幅",
+      control: { type: 'number' },
+      description: '縦幅',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     width: {
-      control: { type: "number" },
-      description: "横幅",
+      control: { type: 'number' },
+      description: '横幅',
       table: {
-        type: { summary: "number" },
+        type: { summary: 'number' },
       },
     },
     hasError: {
-      control: { type: "boolean" },
-      description: "バリデーションエラーフラグ",
+      control: { type: 'boolean' },
+      description: 'バリデーションエラーフラグ',
       table: {
-        type: { summary: "boolean" },
+        type: { summary: 'boolean' },
       },
     },
     acceptedFileTypes: {
-      control: { type: "array" },
-      description: "受け付けるファイルタイプ",
+      control: { type: 'array' },
+      description: '受け付けるファイルタイプ',
       table: {
-        type: { summary: "array" },
+        type: { summary: 'array' },
       },
     },
     onDrop: {
-      description: "ファイルがドロップ入力された時のイベントハンドラ",
+      description: 'ファイルがドロップ入力された時のイベントハンドラ',
       table: {
-        type: { summary: "function" },
+        type: { summary: 'function' },
       },
     },
     onChange: {
-      description: "ファイルが入力された時のイベントハンドラ",
+      description: 'ファイルが入力された時のイベントハンドラ',
       table: {
-        type: { summary: "function" },
+        type: { summary: 'function' },
       },
     },
   },
   args: {
     height: 200,
-    width: "100%",
+    width: '100%',
     hasError: false,
-    acceptedFileTypes: ["image/png", "image/jpeg", "image/jpg", "image/gif"],
+    acceptedFileTypes: ['image/png', 'image/jpeg', 'image/jpg', 'image/gif'],
   },
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof Dropzone>;
+type Story = StoryObj<typeof Dropzone>
 
 const DropzoneWithHooks = (args: ComponentProps<typeof Dropzone>) => {
-  const [files, setFiles] = useState<File[]>([]);
+  const [files, setFiles] = useState<File[]>([])
 
   const handleDrop = (droppedFiles: File[]) => {
-    setFiles(droppedFiles);
-    args.onDrop?.(droppedFiles);
-  };
+    setFiles(droppedFiles)
+    args.onDrop?.(droppedFiles)
+  }
 
   const fetchData = async () => {
-    const res = await fetch("/images/sample/1.jpg");
-    const blob = await res.blob();
-    const file = new File([blob], "1.png", { type: blob.type });
+    const res = await fetch('/images/sample/1.jpg')
+    const blob = await res.blob()
+    const file = new File([blob], '1.png', { type: blob.type })
 
-    setFiles(prevFiles => [...prevFiles, file]);
-  };
+    setFiles((prevFiles) => [...prevFiles, file])
+  }
 
   const clearImages = () => {
-    setFiles([]);
-  };
+    setFiles([])
+  }
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   return (
     <>
@@ -98,14 +98,19 @@ const DropzoneWithHooks = (args: ComponentProps<typeof Dropzone>) => {
       </Box>
       <Box>
         {files.map((f, i) => (
-          <img src={URL.createObjectURL(f)} width="100px" key={i} alt="sample" />
+          <img
+            src={URL.createObjectURL(f)}
+            width="100px"
+            key={i}
+            alt="sample"
+          />
         ))}
       </Box>
     </>
-  );
-};
+  )
+}
 
 export const Default: Story = {
   args: {},
-  render: args => <DropzoneWithHooks {...args} />,
-};
+  render: (args) => <DropzoneWithHooks {...args} />,
+}
