@@ -1,16 +1,16 @@
-import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
-import Link from 'next/link';
-import Text from 'components/atoms/Text';
-import Box from 'components/layout/Box';
-import Flex from 'components/layout/Flex';
-import ProductCard from 'components/organisms/ProductCard';
-import ProductCardCarousel from 'components/organisms/ProductCardCarousel';
-import Layout from 'components/templates/Layout';
-import getAllProducts from 'services/products/get-all-products';
-import { ApiContext, Product } from 'types';
-import logger from 'utils/logger';
+import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
+import Link from 'next/link'
+import Text from 'components/atoms/Text'
+import Box from 'components/layout/Box'
+import Flex from 'components/layout/Flex'
+import ProductCard from 'components/organisms/ProductCard'
+import ProductCardCarousel from 'components/organisms/ProductCardCarousel'
+import Layout from 'components/templates/Layout'
+import getAllProducts from 'services/products/get-all-products'
+import { ApiContext, Product } from 'types'
+import logger from 'utils/logger'
 
-type HomePageProps = InferGetStaticPropsType<typeof getStaticProps>;
+type HomePageProps = InferGetStaticPropsType<typeof getStaticProps>
 
 const HomePage: NextPage<HomePageProps> = ({
   bookProducts,
@@ -19,7 +19,7 @@ const HomePage: NextPage<HomePageProps> = ({
 }: HomePageProps) => {
   // 商品カードカルーセルをレンダリング
   const renderProductCardCarousel = (products: Product[]) => {
-    logger.info('HomePageコンポーネントの描画関数内で呼ばれたログです');
+    logger.info('HomePageコンポーネントの描画関数内で呼ばれたログです')
     return (
       <ProductCardCarousel>
         {products.map((p: Product, i: number) => (
@@ -36,8 +36,8 @@ const HomePage: NextPage<HomePageProps> = ({
           </Box>
         ))}
       </ProductCardCarousel>
-    );
-  };
+    )
+  }
 
   return (
     <Layout>
@@ -106,22 +106,22 @@ const HomePage: NextPage<HomePageProps> = ({
         </Box>
       </Flex>
     </Layout>
-  );
-};
+  )
+}
 
 export const getStaticProps: GetStaticProps = async () => {
   const context: ApiContext = {
     apiRootUrl: process.env.API_BASE_URL || 'http://localhost:5000',
-  };
+  }
   // 各商品のトップ6個を取得し、静的ページを作成
   // 60秒でrevalidateな状態にし、静的ページを更新する
   const [clothesProducts, bookProducts, shoesProducts] = await Promise.all([
     getAllProducts(context, { category: 'clothes', limit: 6, page: 1 }),
     getAllProducts(context, { category: 'book', limit: 6, page: 1 }),
     getAllProducts(context, { category: 'shoes', limit: 6, page: 1 }),
-  ]);
+  ])
 
-  logger.info('getStaticProps内で呼ばれたログです');
+  logger.info('getStaticProps内で呼ばれたログです')
 
   return {
     props: {
@@ -130,7 +130,7 @@ export const getStaticProps: GetStaticProps = async () => {
       shoesProducts,
     },
     revalidate: 60,
-  };
-};
+  }
+}
 
-export default HomePage;
+export default HomePage
